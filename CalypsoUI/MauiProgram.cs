@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace CalypsoUI;
 
@@ -19,6 +21,7 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+        builder.ConfigureSyncfusionCore();
+        return builder.Build();
 	}
 }
