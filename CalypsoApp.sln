@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalypsoUI", "CalypsoUI\CalypsoUI.csproj", "{6E54E558-9CF2-453E-A5A7-42CBF7E04C58}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calypso", "Calypso\Calypso.csproj", "{BB1CF734-59FF-4CF5-9105-02365E7D67E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{6E54E558-9CF2-453E-A5A7-42CBF7E04C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E54E558-9CF2-453E-A5A7-42CBF7E04C58}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E54E558-9CF2-453E-A5A7-42CBF7E04C58}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BB1CF734-59FF-4CF5-9105-02365E7D67E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB1CF734-59FF-4CF5-9105-02365E7D67E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB1CF734-59FF-4CF5-9105-02365E7D67E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB1CF734-59FF-4CF5-9105-02365E7D67E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
