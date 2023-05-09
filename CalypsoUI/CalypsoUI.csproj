@@ -53,4 +53,14 @@
 		<PackageReference Include="Syncfusion.Maui.DataGrid" Version="21.1.41" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Calypso\Calypso.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Customers.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
