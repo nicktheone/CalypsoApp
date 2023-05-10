@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LiteDB;
+using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core;
 using Syncfusion.Maui.Core.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CalypsoUI;
 
@@ -21,7 +23,9 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
-        builder.ConfigureSyncfusionCore();
+		builder.ConfigureSyncfusionCore();
+		builder.Services.AddSingleton(serviceProvider =>
+			ActivatorUtilities.CreateInstance<LiteDatabase>(serviceProvider, $"{AppContext.BaseDirectory}Database.db"));
         return builder.Build();
 	}
 }

@@ -3,13 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:local="clr-namespace:CalypsoUI"
-             xmlns:local2="clr-namespace:Calypso;assembly=Calypso"
              x:Class="CalypsoUI.Customers"
              Title="Customers"
              BackgroundColor="White">
 
     <ContentPage.BindingContext>
-        <local2:CustomerRepository x:Name="viewModel" />
+        <local:CustomersViewModel x:Name="viewModel" />
     </ContentPage.BindingContext>
 
 

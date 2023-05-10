@@ -1,4 +1,5 @@
 ﻿using Calypso.Models;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,24 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Calypso;
-public class CustomerRepository
+public class CustomerRepository : Repository<CustomerModel>
 {
-	private ObservableCollection<CustomerModel>	customers;
-
-	public ObservableCollection<CustomerModel> CustomersCollection
-	{
-		get { return customers; }
-		set { customers = value; }
-	}
-
-    public CustomerRepository()
+    public CustomerRepository(LiteDatabase liteDatabase) : base(liteDatabase)
     {
-        customers = new ObservableCollection<CustomerModel>();
-		GenerateDemoCustomers();
-    }
 
-    private void GenerateDemoCustomers()
-    {
-        customers.Add(new CustomerModel() { FirstName = "Nome", LastName = "Cognome", Email = "email@email.com", Phone = "33333333333"});
     }
 }
