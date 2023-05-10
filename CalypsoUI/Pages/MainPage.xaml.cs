@@ -1,4 +1,4 @@
-﻿namespace CalypsoUI;
+﻿namespace CalypsoUI.Pages;
 
 public partial class MainPage : ContentPage
 {

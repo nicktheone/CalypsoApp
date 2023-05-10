@@ -1,31 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:local="clr-namespace:CalypsoUI"
-             x:Class="CalypsoUI.Customers"
-             Title="Customers"
+             x:Class="CalypsoUI.Pages.MainPage"
              BackgroundColor="White">
 
     <ContentPage.BindingContext>
-        <local:CustomersViewModel x:Name="viewModel" />
+        <local:OrderInfoRepository x:Name="viewModel" />
     </ContentPage.BindingContext>
-
+    
 
     <Border Stroke="#f1f5fb"
             StrokeThickness="10"
             StrokeShape="RoundRectangle 40, 40, 40, 40"
             Background="#f1f5fb"
             Margin="20">
+        
+        <ScrollView BackgroundColor="#f1f5fb">
+            <StackLayout
+            Spacing="25"
+            Padding="30,0">
 
-        <VerticalStackLayout Spacing="25"
-            Padding="30,0"
-            BackgroundColor="#f1f5fb">
-
-            <syncfusion:SfDataGrid x:Name="dataGrid"
-                               ItemsSource="{Binding CustomersCollection}"
+                <syncfusion:SfDataGrid x:Name="dataGrid"
+                               ItemsSource="{Binding OrderInfoCollection}"
                                        HorizontalOptions="Center"
                                        ColumnWidthMode="Auto"/>
-        </VerticalStackLayout>
+            </StackLayout>
+        </ScrollView>
     </Border>
 </ContentPage>

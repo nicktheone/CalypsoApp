@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:CalypsoUI"
+    xmlns:pages="clr-namespace:CalypsoUI.Pages"
     FlyoutBehavior="Locked"
     FlyoutBackground="#f1f5fb"
     FlyoutWidth="300"
@@ -31,8 +32,8 @@
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}"/>
-    <ShellContent Title="Clienti" Route="Customers" ContentTemplate="{DataTemplate local:Customers}" />
-    <ShellContent Title="Abbonamenti" Route="Memberships" ContentTemplate="{DataTemplate local:MainPage}" />
-    <ShellContent Title="Spiaggia" Route="Beach" ContentTemplate="{DataTemplate local:MainPage}" />
+    <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate pages:MainPage}" />
+    <ShellContent Title="Clienti" Route="CustomersPage" ContentTemplate="{DataTemplate pages:CustomersPage}" />
+    <ShellContent Title="Abbonamenti" Route="Memberships" ContentTemplate="{DataTemplate pages:MainPage}" />
+    <ShellContent Title="Spiaggia" Route="Beach" ContentTemplate="{DataTemplate pages:MainPage}" />
 </Shell>

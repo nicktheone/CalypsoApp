@@ -58,9 +58,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Customers.xaml">
+	  <MauiXaml Update="Pages\CustomersPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Pages\CustomersPage.xaml.cs">
+	    <DependentUpon>CustomersPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

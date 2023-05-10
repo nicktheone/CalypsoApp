@@ -1,7 +1,7 @@
 ﻿using LiteDB;
 using System.Runtime.InteropServices;
 
-namespace Calypso;
+namespace Calypso.DataAccess;
 abstract public class Repository<T> where T : class
 {
     private readonly LiteDatabase db;

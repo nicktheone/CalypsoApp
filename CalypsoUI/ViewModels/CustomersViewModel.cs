@@ -8,7 +8,7 @@ using Calypso;
 using Calypso.Models;
 using LiteDB;
 
-namespace CalypsoUI;
+namespace CalypsoUI.ViewModels;
 internal class CustomersViewModel
 {
     private ObservableCollection<CustomerModel> customers;

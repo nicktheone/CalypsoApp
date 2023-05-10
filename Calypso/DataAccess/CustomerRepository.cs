@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Calypso;
+namespace Calypso.DataAccess;
 public class CustomerRepository : Repository<CustomerModel>
 {
     public CustomerRepository(LiteDatabase liteDatabase) : base(liteDatabase)
