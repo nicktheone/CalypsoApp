@@ -6,13 +6,13 @@
     xmlns:local="clr-namespace:CalypsoUI"
     xmlns:pages="clr-namespace:CalypsoUI.Pages"
     FlyoutBehavior="Locked"
-    FlyoutBackground="#f1f5fb"
+    FlyoutBackground="#F8F7FE"
     FlyoutWidth="300"
     Shell.NavBarIsVisible="False">
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="White"
+            <Grid BackgroundColor="#F8F7FE"
                   HeightRequest="100">
                 <Label Text="CALYPSO"
                        TextColor="Black"

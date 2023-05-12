@@ -12,20 +12,57 @@
     </ContentPage.BindingContext>
 
 
-    <Border Stroke="#f1f5fb"
-            StrokeThickness="10"
-            StrokeShape="RoundRectangle 40, 40, 40, 40"
-            Background="#f1f5fb"
-            Margin="20">
+    <VerticalStackLayout Spacing="10"
+                         Padding="40, 40, 40, 40"
+                         BackgroundColor="White">
 
-        <VerticalStackLayout Spacing="25"
-            Padding="30,0"
-            BackgroundColor="#f1f5fb">
-
-            <syncfusion:SfDataGrid x:Name="dataGrid"
+        <Grid ColumnDefinitions="*, auto"
+              MinimumHeightRequest="50">
+            <Label TextColor="#3A2991"
+                   FontSize="Header"
+                   FontFamily="Quosm"
+                   Grid.Column="0">
+                Clienti
+            </Label>
+            <HorizontalStackLayout Grid.Column="1">
+                <Label TextColor="#3A2991"
+                       FontSize="Small"
+                       FontFamily="Quosm"
+                       VerticalOptions="Center">
+                    Aggiungi
+                </Label>
+                <Label Grid.Column="2"
+                   FontSize="Large"
+                   VerticalOptions="Center"
+                   TextColor="#94E8EB">
+                    |
+                </Label>
+                <Label TextColor="#3A2991"
+                       FontSize="Small"
+                       FontFamily="Quosm"
+                       VerticalOptions="Center">
+                    Cerca
+                </Label>
+            </HorizontalStackLayout>
+        </Grid>
+        <Label TextColor="#B9B9B9"
+               FontSize="Caption"
+               FontFamily="Quosm">
+            XXX record trovati
+        </Label>
+        <syncfusion:SfDataGrid x:Name="dataGrid"
                                ItemsSource="{Binding CustomersCollection}"
-                                       HorizontalOptions="Center"
-                                       ColumnWidthMode="Auto"/>
-        </VerticalStackLayout>
-    </Border>
+                               AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+                               ColumnWidthMode="Fill"
+                               Margin="100,50"
+                               HeaderGridLinesVisibility="None"
+                               GridLinesVisibility="Vertical">
+            <syncfusion:SfDataGrid.DefaultStyle>
+                <syncfusion:DataGridStyle RowFontFamily="Quosm"
+                                          HeaderRowFontFamily="Quosm"
+                                          HeaderRowTextColor="LightGray"
+                                          HeaderRowFontSize="13"/>
+            </syncfusion:SfDataGrid.DefaultStyle>
+        </syncfusion:SfDataGrid>
+    </VerticalStackLayout>
 </ContentPage>
