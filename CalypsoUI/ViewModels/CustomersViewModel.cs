@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Calypso;
 using Calypso.Models;
 using LiteDB;
@@ -19,6 +20,8 @@ internal class CustomersViewModel
         set { customers = value; }
     }
 
+    public ICommand NavigateToAddCustomerPageCommand => new Command(NavigateToAddCustomerPage);
+
     public CustomersViewModel()
     {
         customers = new ObservableCollection<CustomerModel>();
@@ -26,6 +29,11 @@ internal class CustomersViewModel
         foreach ( var item in collection.FindAll())
         {
             customers.Add(item);
-        }       
+        }
+    }
+
+    public async void NavigateToAddCustomerPage()
+    {
+        await Shell.Current.GoToAsync("addcustomer");
     }
 }

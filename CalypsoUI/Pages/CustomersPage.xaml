@@ -25,30 +25,33 @@
                 Clienti
             </Label>
             <HorizontalStackLayout Grid.Column="1">
-                <Label TextColor="#3A2991"
+                <Label Text="Aggiungi"
+                       TextColor="#3A2991"
                        FontSize="Small"
                        FontFamily="Quosm"
                        VerticalOptions="Center">
-                    Aggiungi
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToAddCustomerPageCommand}"/>
+                    </Label.GestureRecognizers>
                 </Label>
-                <Label Grid.Column="2"
-                   FontSize="Large"
-                   VerticalOptions="Center"
-                   TextColor="#94E8EB">
-                    |
+                <Label Text="|"
+                       Grid.Column="2"
+                       FontSize="Large"
+                       VerticalOptions="Center"
+                       TextColor="#94E8EB">
                 </Label>
-                <Label TextColor="#3A2991"
+                <Label Text="Cerca"
+                       TextColor="#3A2991"
                        FontSize="Small"
                        FontFamily="Quosm"
                        VerticalOptions="Center">
-                    Cerca
                 </Label>
             </HorizontalStackLayout>
         </Grid>
-        <Label TextColor="#B9B9B9"
+        <Label Text="XXX record trovati"
+               TextColor="#B9B9B9"
                FontSize="Caption"
                FontFamily="Quosm">
-            XXX record trovati
         </Label>
         <syncfusion:SfDataGrid x:Name="dataGrid"
                                ItemsSource="{Binding CustomersCollection}"
