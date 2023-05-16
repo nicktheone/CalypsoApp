@@ -12,11 +12,13 @@
     </ContentPage.BindingContext>
 
 
-    <VerticalStackLayout Spacing="10"
-                         Padding="40, 40, 40, 40"
+    <VerticalStackLayout x:Name="vertical"
+                         Spacing="10"
+                         Padding="40,40,40,80"
                          BackgroundColor="White">
 
-        <Grid ColumnDefinitions="*, auto"
+        <Grid x:Name="grid"
+              ColumnDefinitions="*, auto"
               MinimumHeightRequest="50">
             <Label TextColor="#3A2991"
                    FontSize="Header"
@@ -48,7 +50,8 @@
                 </Label>
             </HorizontalStackLayout>
         </Grid>
-        <Label Text="XXX record trovati"
+        <Label x:Name="label"
+               Text="XXX record trovati"
                TextColor="#B9B9B9"
                FontSize="Caption"
                FontFamily="Quosm">
@@ -56,8 +59,9 @@
         <syncfusion:SfDataGrid x:Name="dataGrid"
                                ItemsSource="{Binding CustomersCollection}"
                                AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+                               Loaded="dataGrid_Loaded"
                                ColumnWidthMode="Fill"
-                               Margin="100,50"
+                               Margin="100,10,100,0"
                                HeaderGridLinesVisibility="None"
                                GridLinesVisibility="Vertical">
             <syncfusion:SfDataGrid.DefaultStyle>

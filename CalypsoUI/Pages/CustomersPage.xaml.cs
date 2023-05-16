@@ -31,4 +31,11 @@ public partial class CustomersPage : ContentPage
             e.Column.HeaderText = "Telefono";
         }
     }
+
+    private void dataGrid_Loaded(object sender, EventArgs e)
+    {
+        //var height = (10 * dataGrid.RowHeight) + dataGrid.HeaderRowHeight;
+        var height = Window.Height - (grid.Height + label.Height) - (dataGrid.Margin.VerticalThickness + vertical.Padding.VerticalThickness + vertical.Spacing);
+        dataGrid.HeightRequest = (double)height;
+    }
 }
