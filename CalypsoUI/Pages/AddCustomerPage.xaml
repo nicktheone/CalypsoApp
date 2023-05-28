@@ -1,14 +1,133 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CalypsoUI.ViewModels"
+             xmlns:dataForm="clr-namespace:Syncfusion.Maui.DataForm;assembly=Syncfusion.Maui.DataForm"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:thickness ="clr-namespace:Microsoft.Maui;assembly=Microsoft.Maui"
              x:Class="CalypsoUI.Pages.AddCustomerPage"
              Title="AddCustomer"
              BackgroundColor="White">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            TextColor="Black"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.BindingContext>
+        <local:AddCustomerPageViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MainAvatarStyle"  TargetType="syncfusion:SfAvatarView">
+                <Setter Property="AvatarShape" Value="Circle"/>
+                <Setter Property="AvatarSize" Value="ExtraLarge"/>
+                <Setter Property="InitialsType" Value="SingleCharacter"/>
+                <Setter Property="ImageSource" Value="https://help.syncfusion.com/maui/avatar-view/Customization_Images/Stroke_AvatarView.png"/>
+                <!--<Setter Property="AvatarName" Value="Name"/>-->
+                <Setter Property="Stroke" Value="#9E9E9E"/>
+                <Setter Property="ContentType" Value="Initials"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Background="White">
+        <!--<Grid.BindingContext>
+            <local:DataFormViewModel/>
+        </Grid.BindingContext>-->
+
+        <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}" MaximumHeightRequest="{OnPlatform MacCatalyst=800}"
+                VerticalOptions="{OnPlatform MacCatalyst=Center}" BackgroundColor="White"
+                HasShadow="False" Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}"
+                CornerRadius="10" Grid.Column="0" WidthRequest="{OnPlatform WinUI=400, MacCatalyst=600, Default=-1}"
+                HorizontalOptions="{OnIdiom Desktop=Center, Default=Fill}" Padding="0">
+            <Frame.Margin>
+                <OnPlatform x:TypeArguments="thickness:Thickness">
+                    <On Platform="MacCatalyst" Value="20"/>
+                    <On Platform="UWP" Value="20"/>
+                </OnPlatform>
+            </Frame.Margin>
+
+            <Grid RowDefinitions="0.9*, 1, 0.1*">
+                <dataForm:SfDataForm x:Name="contactForm"
+                                         AutoGenerateItems="False"
+                                         ValidationMode="PropertyChanged"
+                                         LayoutType="TextInputLayout">
+                    <dataForm:SfDataForm.TextInputLayoutSettings>
+                        <dataForm:TextInputLayoutSettings ShowHelperText="True"
+                                                              FocusedStroke="{StaticResource Primary}"/>
+                    </dataForm:SfDataForm.TextInputLayoutSettings>
+
+                    <dataForm:SfDataForm.Items>
+                        <dataForm:DataFormCustomItem LayoutType="Default">
+                            <dataForm:DataFormCustomItem.EditorView>
+                                <!--<Image Source="https://help.syncfusion.com/maui/avatar-view/Customization_Images/Stroke_AvatarView.png"
+                                       HeightRequest="80"/>-->
+                                <!--<syncfusion:SfBadgeView x:Name="StatusBadge" Margin="0,30,0,0"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="75"
+                                    WidthRequest="75">
+                                    <syncfusion:SfBadgeView.Content>
+                                        <syncfusion:SfAvatarView HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource MainAvatarStyle}"/>
+                                    </syncfusion:SfBadgeView.Content>
+                                    <syncfusion:SfBadgeView.BadgeSettings>
+                                        <syncfusion:BadgeSettings Offset="-12,-12" 
+                                              Animation="Scale"
+                                              Position="BottomRight" 
+                                              Type="Success"
+                                              Icon="Available"/>
+                                    </syncfusion:SfBadgeView.BadgeSettings>
+                                </syncfusion:SfBadgeView>-->
+                                <syncfusion:SfAvatarView x:Name="Avatar"
+                                    HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource MainAvatarStyle}"/>
+                            </dataForm:DataFormCustomItem.EditorView>
+                        </dataForm:DataFormCustomItem>
+                        
+                        <dataForm:DataFormGroupItem Name="Nome">
+                            <dataForm:DataFormGroupItem.Items>
+                                <dataForm:DataFormTextItem x:Name="aaa" FieldName="Nome" ShowLeadingView="True">
+                                    <dataForm:DataFormTextItem.LeadingView>
+                                        <Label Text="F" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
+                                    </dataForm:DataFormTextItem.LeadingView>
+                                </dataForm:DataFormTextItem>
+                                <dataForm:DataFormTextItem FieldName="Cognome" ShowLeadingView="True">
+                                    <dataForm:DataFormTextItem.LeadingView>
+                                        <Label />
+                                    </dataForm:DataFormTextItem.LeadingView>
+                                </dataForm:DataFormTextItem>
+                            </dataForm:DataFormGroupItem.Items>
+                        </dataForm:DataFormGroupItem>
+
+                        <dataForm:DataFormGroupItem Name="Contatti">
+                            <dataForm:DataFormGroupItem.Items>
+                                <dataForm:DataFormTextItem FieldName="Telefono" ShowLeadingView="True">
+                                    <dataForm:DataFormTextItem.LeadingView>
+                                        <Label Text="E" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
+                                    </dataForm:DataFormTextItem.LeadingView>
+                                </dataForm:DataFormTextItem>
+
+                                <dataForm:DataFormTextItem FieldName="Email" Keyboard="Email">
+                                    <dataForm:DataFormTextItem.LeadingView>
+                                        <Label Text="G" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
+                                    </dataForm:DataFormTextItem.LeadingView>
+                                </dataForm:DataFormTextItem>
+                            </dataForm:DataFormGroupItem.Items>
+                        </dataForm:DataFormGroupItem>
+
+                    </dataForm:SfDataForm.Items>
+                </dataForm:SfDataForm>
+                <Line Grid.Row="1" Background="#F5F5F5" />
+                <Button Text="Save" Grid.Row="2" x:Name="saveButton" Background="{StaticResource PrimaryBrush}" TextColor="White"
+                        HeightRequest="40"
+                        VerticalOptions="Center"
+                        FontSize="16"
+                        CornerRadius="5"
+                        WidthRequest="200"
+                        HorizontalOptions="Center" />
+            </Grid>
+        </Frame>
+    </Grid>
+
 </ContentPage>
