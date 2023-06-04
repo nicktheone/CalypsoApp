@@ -6,19 +6,21 @@
     xmlns:local="clr-namespace:CalypsoUI"
     xmlns:pages="clr-namespace:CalypsoUI.Pages"
     FlyoutBehavior="Locked"
-    FlyoutBackground="#F8F7FE"
     FlyoutWidth="300"
     Shell.NavBarIsVisible="False">
 
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
-            <Grid BackgroundColor="#F8F7FE"
+            <Grid BackgroundColor="White"
                   HeightRequest="100">
-                <Label Text="CALYPSO"
+                <Image Aspect="AspectFit"
+                       Source="logo.png"
+                       Margin="10"/>
+                <!--<Label Text="CALYPSO"
                        TextColor="Black"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center" />
+                       VerticalTextAlignment="Center" />-->
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>

@@ -12,6 +12,6 @@ internal class AddCustomerPageViewModel
 
     public AddCustomerPageViewModel()
     {
-        Customer = new CustomerModel() { FirstName = "Cacca"};
+        Customer = new CustomerModel();
     }
 }

@@ -10,35 +10,48 @@ using System.Threading.Tasks;
 namespace Calypso.Models;
 public class CustomerModel
 {
-    private ObjectId _id;
+    private Guid _id;
     private string firstName;
 	private string lastName;
 	private string phone;
 	private string email;
+    private string notes;
 
-    public ObjectId Id
+    [Display(AutoGenerateField = false)]
+    public Guid Id
     {
         get { return _id; }
         set { _id = value; }
     }
+    [Display(GroupName = "Name")]
     public string LastName
     {
         get { return lastName; }
         set { lastName = value; }
     }
+    [Display(GroupName = "Name")]
     public string FirstName
     {
         get { return firstName; }
         set { firstName = value; }
     }
+    [Display(GroupName = "Contatti")]
     public string Phone
     {
         get { return phone; }
         set { phone = value; }
     }
+    [Display(GroupName = "Contatti")]
     public string Email
     {
         get { return email; }
         set { email = value; }
+    }
+    [Display(GroupName = "Note")]
+    [DataType(DataType.MultilineText)]
+    public string Notes
+    {
+        get { return notes; }
+        set { notes = value; }
     }
 }

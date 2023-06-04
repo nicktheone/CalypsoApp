@@ -33,10 +33,6 @@
     </ContentPage.Resources>
 
     <Grid Background="White">
-        <!--<Grid.BindingContext>
-            <local:DataFormViewModel/>
-        </Grid.BindingContext>-->
-
         <Frame BorderColor="{OnIdiom Default=Transparent, Desktop=#C2C2C2}" MaximumHeightRequest="{OnPlatform MacCatalyst=800}"
                 VerticalOptions="{OnPlatform MacCatalyst=Center}" BackgroundColor="White"
                 HasShadow="False" Grid.ColumnSpan="{OnIdiom Default=2, Desktop=1}"
@@ -49,77 +45,26 @@
                 </OnPlatform>
             </Frame.Margin>
 
-            <Grid RowDefinitions="0.9*, 1, 0.1*">
+            <Grid RowDefinitions="0.15*, 0.7*, 1, 0.1*"
+                  Margin="5, 20, 5, 0">
+                <syncfusion:SfAvatarView x:Name="Avatar"
+                                         HorizontalOptions="Start" 
+                                         VerticalOptions="Start" 
+                                         Style="{StaticResource MainAvatarStyle}"
+                                         Grid.Row="0"/>
                 <dataForm:SfDataForm x:Name="contactForm"
-                                         AutoGenerateItems="False"
-                                         ValidationMode="PropertyChanged"
-                                         LayoutType="TextInputLayout">
+                                     DataObject="{Binding Customer}"
+                                     AutoGenerateItems="True"
+                                     ValidationMode="PropertyChanged"
+                                     LayoutType="TextInputLayout"
+                                     Grid.Row="1">
                     <dataForm:SfDataForm.TextInputLayoutSettings>
                         <dataForm:TextInputLayoutSettings ShowHelperText="True"
-                                                              FocusedStroke="{StaticResource Primary}"/>
+                                                          FocusedStroke="{StaticResource Primary}"/>
                     </dataForm:SfDataForm.TextInputLayoutSettings>
-
-                    <dataForm:SfDataForm.Items>
-                        <dataForm:DataFormCustomItem LayoutType="Default">
-                            <dataForm:DataFormCustomItem.EditorView>
-                                <!--<Image Source="https://help.syncfusion.com/maui/avatar-view/Customization_Images/Stroke_AvatarView.png"
-                                       HeightRequest="80"/>-->
-                                <!--<syncfusion:SfBadgeView x:Name="StatusBadge" Margin="0,30,0,0"
-                                    VerticalOptions="Center"
-                                    HorizontalOptions="Center"
-                                    HeightRequest="75"
-                                    WidthRequest="75">
-                                    <syncfusion:SfBadgeView.Content>
-                                        <syncfusion:SfAvatarView HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource MainAvatarStyle}"/>
-                                    </syncfusion:SfBadgeView.Content>
-                                    <syncfusion:SfBadgeView.BadgeSettings>
-                                        <syncfusion:BadgeSettings Offset="-12,-12" 
-                                              Animation="Scale"
-                                              Position="BottomRight" 
-                                              Type="Success"
-                                              Icon="Available"/>
-                                    </syncfusion:SfBadgeView.BadgeSettings>
-                                </syncfusion:SfBadgeView>-->
-                                <syncfusion:SfAvatarView x:Name="Avatar"
-                                    HorizontalOptions="Start" VerticalOptions="Start" Style="{StaticResource MainAvatarStyle}"/>
-                            </dataForm:DataFormCustomItem.EditorView>
-                        </dataForm:DataFormCustomItem>
-                        
-                        <dataForm:DataFormGroupItem Name="Nome">
-                            <dataForm:DataFormGroupItem.Items>
-                                <dataForm:DataFormTextItem x:Name="aaa" FieldName="Nome" ShowLeadingView="True">
-                                    <dataForm:DataFormTextItem.LeadingView>
-                                        <Label Text="F" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
-                                    </dataForm:DataFormTextItem.LeadingView>
-                                </dataForm:DataFormTextItem>
-                                <dataForm:DataFormTextItem FieldName="Cognome" ShowLeadingView="True">
-                                    <dataForm:DataFormTextItem.LeadingView>
-                                        <Label />
-                                    </dataForm:DataFormTextItem.LeadingView>
-                                </dataForm:DataFormTextItem>
-                            </dataForm:DataFormGroupItem.Items>
-                        </dataForm:DataFormGroupItem>
-
-                        <dataForm:DataFormGroupItem Name="Contatti">
-                            <dataForm:DataFormGroupItem.Items>
-                                <dataForm:DataFormTextItem FieldName="Telefono" ShowLeadingView="True">
-                                    <dataForm:DataFormTextItem.LeadingView>
-                                        <Label Text="E" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
-                                    </dataForm:DataFormTextItem.LeadingView>
-                                </dataForm:DataFormTextItem>
-
-                                <dataForm:DataFormTextItem FieldName="Email" Keyboard="Email">
-                                    <dataForm:DataFormTextItem.LeadingView>
-                                        <Label Text="G" FontSize="18" TextColor="Gray" FontFamily="InputLayoutIcons" HeightRequest="24" VerticalTextAlignment="End" />
-                                    </dataForm:DataFormTextItem.LeadingView>
-                                </dataForm:DataFormTextItem>
-                            </dataForm:DataFormGroupItem.Items>
-                        </dataForm:DataFormGroupItem>
-
-                    </dataForm:SfDataForm.Items>
                 </dataForm:SfDataForm>
-                <Line Grid.Row="1" Background="#F5F5F5" />
-                <Button Text="Save" Grid.Row="2" x:Name="saveButton" Background="{StaticResource PrimaryBrush}" TextColor="White"
+                <Line Grid.Row="2" Background="#F5F5F5" />
+                <Button Text="Save" Grid.Row="3" x:Name="saveButton" Background="{StaticResource PrimaryBrush}" TextColor="White"
                         HeightRequest="40"
                         VerticalOptions="Center"
                         FontSize="16"

@@ -51,6 +51,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\InputLayoutIcons.ttf" />
 	  <None Remove="Resources\Fonts\Quosm Semi Bold.otf" />
+	  <None Remove="Resources\Images\logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
