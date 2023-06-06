@@ -30,6 +30,10 @@ public partial class CustomersPage : ContentPage
         {
             e.Column.HeaderText = "Telefono";
         }
+        if (e.Column.MappingName == "Notes")
+        {
+            e.Column.HeaderText = "Note";
+        }
     }
 
     private void dataGrid_Loaded(object sender, EventArgs e)

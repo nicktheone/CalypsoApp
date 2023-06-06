@@ -23,31 +23,37 @@ public class CustomerModel
         get { return _id; }
         set { _id = value; }
     }
-    [Display(GroupName = "Name")]
+
+    [Display(GroupName = "Name", Name = "Cognome")]
+    [Required(AllowEmptyStrings = false, ErrorMessage = "Cognome necessario")]
     public string LastName
     {
         get { return lastName; }
         set { lastName = value; }
     }
-    [Display(GroupName = "Name")]
+
+    [Display(GroupName = "Name", Name = "Nome")]
     public string FirstName
     {
         get { return firstName; }
         set { firstName = value; }
     }
-    [Display(GroupName = "Contatti")]
+
+    [Display(GroupName = "Contatti", Name = "Telefono")]
     public string Phone
     {
         get { return phone; }
         set { phone = value; }
     }
+
     [Display(GroupName = "Contatti")]
     public string Email
     {
         get { return email; }
         set { email = value; }
     }
-    [Display(GroupName = "Note")]
+
+    [Display(GroupName = "Note", Name = "Note")]
     [DataType(DataType.MultilineText)]
     public string Notes
     {

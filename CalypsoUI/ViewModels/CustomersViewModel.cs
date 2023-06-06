@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Calypso;
 using Calypso.Models;
+using Calypso.DataAccess;
 using LiteDB;
 
 namespace CalypsoUI.ViewModels;
 internal class CustomersViewModel
 {
     private ObservableCollection<CustomerModel> customers;
+    private readonly CustomerRepository customerRepository;
 
     public ObservableCollection<CustomerModel> CustomersCollection
     {
@@ -24,9 +26,10 @@ internal class CustomersViewModel
 
     public CustomersViewModel()
     {
+        customerRepository = new CustomerRepository(Application.Current.Handler.MauiContext.Services.GetService<LiteDatabase>());
         customers = new ObservableCollection<CustomerModel>();
-        var collection = Application.Current.Handler.MauiContext.Services.GetService<LiteDatabase>().GetCollection<CustomerModel>("customers");
-        foreach ( var item in collection.FindAll())
+        var collection = customerRepository.List("customers");
+        foreach (var item in collection.FindAll())
         {
             customers.Add(item);
         }
