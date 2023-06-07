@@ -17,6 +17,7 @@ public class CustomerModel
 	private string email;
     private string notes;
 
+    //Annotations required for sfDataForm
     [Display(AutoGenerateField = false)]
     public Guid Id
     {
@@ -25,7 +26,7 @@ public class CustomerModel
     }
 
     [Display(GroupName = "Name", Name = "Cognome")]
-    [Required(AllowEmptyStrings = false, ErrorMessage = "Cognome necessario")]
+    [Required(AllowEmptyStrings = false, ErrorMessage = "Inserire un cognome")]
     public string LastName
     {
         get { return lastName; }
